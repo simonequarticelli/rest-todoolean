@@ -2,5 +2,31 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 0;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container__todo-list{
+  padding: 50px;
+  font-size: 20px;
+}
+#text{
+  margin: 20px 0px;
+}
+.item{
+  list-style-type: none;
+}
+.fa-trash-alt,
+.fa-edit,
+.fa-plus,
+.fa-check-square,
+.fa-clock{
+  cursor: pointer;
+  padding-right: 10px;
+}
+.fa-plus,
+.fa-check-square{
+  padding: 0px 10px;
 }

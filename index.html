@@ -22,19 +22,19 @@
   </head>
   <body>
 
+  <div class="container__todo-list">
+    <h1>TODO-LIST</h1>
+    <input id="text"type="text" name="" value="">
+    <i id="add"class="fas fa-plus"></i><i id="mod"class="fas fa-check-square"></i>
+    <ul id="list">
 
-
-
-
-
-
-
-
+    </ul>
+  </div>
 
 
   <!--HANDLEBARS-->
-  <script class="" type ="text/x-handlebars-template">
-
+  <script id="template__item__list" type ="text/x-handlebars-template">
+    <li class="item" data-id="{{ dato2 }}"><i class="fas fa-trash-alt"></i><i class="fas fa-edit"></i><i id="time"class="fas fa-clock"></i>{{ dato1 }}</li>
   </script>
 
   </body>
