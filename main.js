@@ -14,7 +14,7 @@ $(document).ready(function(){
   /////////////////////////////////////////////////////////////////////////////
 
   //assegno url base per chiamate ajax
-  var personal__link = "http://157.230.17.132:3015/todos/";
+  var personal__link = "http://157.230.17.132:3000/todos/";
 
   /////////////////////////////////////////////////////////////////////////////
 
@@ -56,7 +56,7 @@ $(document).ready(function(){
         console.log(errori);
       }
     })
-  }
+  };
   //funzione di creazione
   function crea(item){
     $.ajax({
@@ -73,7 +73,7 @@ $(document).ready(function(){
         console.log(errori);
       }
     })
-  }
+  };
   //funzione di cancellazione
   function cancella(id){
     $.ajax({
@@ -159,27 +159,30 @@ $(document).ready(function(){
 
   /////////////////////////////////////////////////////////////////////////////
 
+  var id__item__mod = '';
+  var text__item__mod = '';
+
   //al click modifica (.on elementi in handlebars)
   $('#list').on('click', '.fa-edit', function(){
-    $('#text').val('');
-    var id__item__mod = $(this).parent('.item').attr('data-id');
+    id__item__mod = $(this).parent('.item').attr('data-id');
     console.log($(this).parent('.item').attr('data-id'));
-    var text__item__mod = $(this).parent('.item').text();
+    text__item__mod = $(this).parent('.item').text();
     console.log($(this).parent('.item').text());
     //copio il testo dell'elemento selezionato nell'input
     $('#text').val(text__item__mod);
     //mostro icona mod e nascondo icona add
     $('.fa-plus').hide();
     $('.fa-check-square').show();
+  });
 
+  /////////////////////////////////////////////////////////////////////////////
 
+  //al click mod
+  $('#mod').click(function(){
+    var new__text = $('#text').val();
+    console.log(new__text);
 
-    //al click mod
-    $('#mod').click(function(){
-
-      var new__text = $('#text').val();
-      console.log(new__text);
-
+    if (new__text != text__item__mod) {
       //mostro icona add e nascondo icona mod
       $('.fa-plus').show();
       $('.fa-check-square').hide();
@@ -187,11 +190,10 @@ $(document).ready(function(){
       $('#text').val('');
 
       modifica(id__item__mod, new__text);
-
-    })
-
+    }
   });
 
   /////////////////////////////////////////////////////////////////////////////
+
 
 });
